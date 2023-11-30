@@ -11,8 +11,11 @@ list.add(70);
 list.insert(1,30);
 list.search(30);  // return true
  list.search(33); // return false;
-        list.insertAfter(40,70);
-//list.display();
+        list.insertAfter(40,30);
+list.display();
+        System.out.println(list.delete(40));
+
+
     }
 
 }

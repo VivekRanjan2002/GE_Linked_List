@@ -54,7 +54,6 @@ public class ManualLinkedList {
 
      /*
      @desc: delete the starting node
-
       */
     public void pop(){
         if(head==null) return;
@@ -119,10 +118,53 @@ public class ManualLinkedList {
         return res;
 
     }
+/*
+@desc: delete the node with given val in list and return the size of current list
+@params: value of node to be deleted
+@return : size of list after deleting the node
+ */
+    public int delete(int val){
+        if(head==null) return  0;
+        if(head.data==val) {
+            head=head.next;
+        }
+        else {
+            Node prev = head;
+            Node curr = head;
+
+            boolean isFound = false;
+            while (curr != null) {
+                if (curr.data == val) {
+                    isFound = true;
+                    break;
+                }
+                prev = curr;
+                curr = curr.next;
+            }
+            if (isFound) {
+                prev.next = curr.next;
+            }
+        }
+        return size();
+
+    }
+    /*
+@desc: return  size of the list
+     */
+
+    public int size(){
+        Node temp=head;
+        int cnt=0;
+        while(temp!=null){
+            cnt++;
+            temp=temp.next;
+        }
+        return cnt;
+    }
 
 
 /*
-@desc: print all the linkedlist
+@desc: print all the list
  */
      public void display(){
        Node temp=head;
