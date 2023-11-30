@@ -9,8 +9,8 @@ list.add(56);
 
 list.add(70);
 list.insert(1,30);
-list.popLast();
-
+list.search(30);  // return true
+ list.search(33); // return false;
 list.display();
     }
 

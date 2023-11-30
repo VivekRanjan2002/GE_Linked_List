@@ -73,6 +73,22 @@ public class ManualLinkedList {
         while(temp.next!=null && temp.next.next!=null) temp=temp.next;
         temp.next=null;
     }
+
+    /*
+    @desc: search an item in linked list
+    @param: item to be searched
+    @return : boolean if 1 then item is available and if 0 then item is not in list
+     */
+    public boolean search(int item){
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==item) return true;
+            temp=temp.next;
+        }
+        return false;
+    }
+
+
 /*
 @desc: print all the linkedlist
  */
