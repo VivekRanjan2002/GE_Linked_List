@@ -60,6 +60,19 @@ public class ManualLinkedList {
         if(head==null) return;
         head=head.next;
     }
+
+    /*
+   @desc: delete the last node
+    */
+    public void popLast(){
+        if(head==null || head.next==null) {
+            head=null;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=null && temp.next.next!=null) temp=temp.next;
+        temp.next=null;
+    }
 /*
 @desc: print all the linkedlist
  */
