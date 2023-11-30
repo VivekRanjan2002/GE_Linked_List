@@ -9,19 +9,44 @@ public class ManualLinkedList {
        ManualLinkedList list= new ManualLinkedList();
        return list;
    }
-   /*
+
+    /*
    @desc: add item to the linked  list
     */
-     public void add ( int data) {
+    public void add ( int data) {
+        Node newNode= new Node(data);
+        if(head==null){
+            head=newNode;
+        }
+        else{
+            Node temp=head;
+            while(temp.next!=null) temp=temp.next;
+            temp.next=newNode;
+        }
+    }
+
+
+   /*
+   @desc: add item in sorted manner to the linked  list
+    */
+     public void addSortedManner ( int data) {
          Node newNode= new Node(data);
-         if(head==null){
+         if(head==null || head.compareTo(newNode)>=0){
+             newNode.next=head;
              head=newNode;
          }
          else{
-             Node temp=head;
-             while(temp.next!=null) temp=temp.next;
-             temp.next=newNode;
+             Node prev= head;
+             Node curr=head;
+             while(curr!=null && curr.compareTo(newNode)<0){
+                 prev=curr;
+                 curr=curr.next;
+             }
+             prev.next=newNode;
+             newNode.next=curr;
          }
+
+
      }
 
      /*
@@ -169,8 +194,9 @@ public class ManualLinkedList {
      public void display(){
        Node temp=head;
        while(temp!=null){
-           System.out.println(temp.data);
+           System.out.print(temp.data+" ");
            temp=temp.next;
        }
+         System.out.println();
      }
 }
