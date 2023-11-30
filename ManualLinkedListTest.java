@@ -17,6 +17,12 @@ class ManualLinkedListTest {
        assertEquals (false,list.search(99));
 
        assertEquals("56 30 40 70 ",list.insertAfter(40,30));
+       assertEquals(3,list.delete(40));
+       assertEquals(2,list.delete(56));
+       assertEquals(2,list.delete(89));
+       assertEquals(1,list.delete(70));
+       assertEquals(0,list.delete(30));
+       assertEquals(0,list.delete(99));
    }
 
 }
