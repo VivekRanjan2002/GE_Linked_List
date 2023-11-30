@@ -23,6 +23,34 @@ public class ManualLinkedList {
              temp.next=newNode;
          }
      }
+
+     /*
+     @desc:insert node with given value at particular index
+     if index is out of bound then leave it
+     @params: index at which node to be added and value of node to add
+
+      */
+     public void insert(int index,int value){
+         Node newNode= new Node(value);
+         if(index==0) {    // insert at starting position
+            newNode.next=head;
+            head=newNode;
+            return;
+         }
+
+         Node prev=null;
+
+        Node curr=head;
+        int cnt=0;
+        while(cnt<index && curr!=null){
+            prev=curr;
+            curr=curr.next;
+            cnt++;
+        }
+        if(cnt!=index) return;  // if index is out of bound
+        prev.next=newNode;
+        newNode.next=curr;
+     }
 /*
 @desc: print all the linkedlist
  */
