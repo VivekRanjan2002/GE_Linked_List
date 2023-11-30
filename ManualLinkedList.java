@@ -88,6 +88,38 @@ public class ManualLinkedList {
         return false;
     }
 
+    /*
+    @desc: insert element after particular ele and put all elements of list in string
+    @params: int searchkey after which u want to add and value you want to add
+    @return : string which contains every element of list
+     */
+    public String insertAfter(int value,int searchKey){
+        Node newNode = new Node(value);
+        Node temp=head;
+        boolean searchflag=false;
+        while(temp!=null){
+            if(temp.data==searchKey){
+                searchflag=true;
+                break;
+            }
+            temp=temp.next;
+
+        }
+        if(searchflag==true){
+            Node next= temp.next;
+            temp.next=newNode;
+            newNode.next=next;
+        }
+        String res="";
+        temp=head;
+        while(temp!=null){
+            res+=temp.data+" ";
+        temp=temp.next;
+        }
+        return res;
+
+    }
+
 
 /*
 @desc: print all the linkedlist

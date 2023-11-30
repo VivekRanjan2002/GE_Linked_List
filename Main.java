@@ -11,7 +11,8 @@ list.add(70);
 list.insert(1,30);
 list.search(30);  // return true
  list.search(33); // return false;
-list.display();
+        list.insertAfter(40,70);
+//list.display();
     }
 
 }
