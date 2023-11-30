@@ -51,6 +51,15 @@ public class ManualLinkedList {
         prev.next=newNode;
         newNode.next=curr;
      }
+
+     /*
+     @desc: delete the starting node
+
+      */
+    public void pop(){
+        if(head==null) return;
+        head=head.next;
+    }
 /*
 @desc: print all the linkedlist
  */
