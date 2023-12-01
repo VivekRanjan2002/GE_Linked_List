@@ -3,26 +3,45 @@ package com.example.linkedlist;
 
 public class Main {
     public static void main(String[] args) {
-    ManualLinkedList  list= ManualLinkedList.List();
 
-        list.add(56);
+        // UC1 initialisation of list
+    ManualLinkedList<Integer> list= new ManualLinkedList();
 
-        list.add(70);
-        list.insert(1,30);
+    // UC2 and UC3 create and append
+        list.add(56); // 56
+        list.add(70);  //  56-> 70
+
+        // UC4 insert at particular index
+        list.insert(1,30); // 56->30->70
+
+        //  UC5 pop method
+        list.pop();
+        list.display(); // 30->70
+        list.insert(0,56); // 56->30->70
+
+        // UC6 popLast
+        list.popLast();
+        list.display(); // 56->30
+
+        // UC7 ability to search
         list.search(30);  // return true
         list.search(33); // return false;
+
+        //UC8 ability to insert after particular node
         list.insertAfter(40,30);
-        list.display();
-        System.out.println(list.delete(40));
+        list.display();  // 56->30->40
+
+        // UC9 ability to delete particular node and return current size of list
+        list.delete(40); // 2
 
 
-   // creating sorted list
+   // UC10  creating sorted list
    ManualLinkedList sortedlist= new ManualLinkedList();
    sortedlist.addSortedManner(56);
    sortedlist.addSortedManner(30);
    sortedlist.addSortedManner(40);
    sortedlist.addSortedManner(70);
-   sortedlist.display();
+   sortedlist.display();   // 30->40->56->70
 
 
     }

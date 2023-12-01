@@ -1,25 +1,24 @@
 package com.example.linkedlist;
 
-public class ManualLinkedList {
-    Node head;
-/*
-@desc: static method to initialise linked list and return it
- */
-   public static ManualLinkedList List(){
-       ManualLinkedList list= new ManualLinkedList();
-       return list;
-   }
+public class ManualLinkedList <T extends Comparable<T>>{
+    Node <T> head;
+
+// @desc: static method to initialise linked list and return it
+
+ public ManualLinkedList(){
+     head=null;
+ }
 
     /*
    @desc: add item to the linked  list
     */
-    public void add ( int data) {
-        Node newNode= new Node(data);
+    public void add ( T data) {
+        Node<T>newNode= new Node(data);
         if(head==null){
             head=newNode;
         }
         else{
-            Node temp=head;
+            Node<T>temp=head;
             while(temp.next!=null) temp=temp.next;
             temp.next=newNode;
         }
@@ -29,16 +28,16 @@ public class ManualLinkedList {
    /*
    @desc: add item in sorted manner to the linked  list
     */
-     public void addSortedManner ( int data) {
-         Node newNode= new Node(data);
-         if(head==null || head.compareTo(newNode)>=0){
+     public  void addSortedManner ( T data) {
+         Node<T>newNode= new Node(data);
+         if(head==null || head.data.compareTo(newNode.data)>=0){
              newNode.next=head;
              head=newNode;
          }
          else{
-             Node prev= head;
-             Node curr=head;
-             while(curr!=null && curr.compareTo(newNode)<0){
+             Node<T>prev= head;
+             Node<T>curr=head;
+             while(curr!=null && curr.data.compareTo(newNode.data)<0){
                  prev=curr;
                  curr=curr.next;
              }
@@ -55,17 +54,17 @@ public class ManualLinkedList {
      @params: index at which node to be added and value of node to add
 
       */
-     public void insert(int index,int value){
-         Node newNode= new Node(value);
+     public void insert(int index,T value){
+         Node<T>newNode= new Node(value);
          if(index==0) {    // insert at starting position
             newNode.next=head;
             head=newNode;
             return;
          }
 
-         Node prev=null;
+         Node <T> prev=null;
 
-        Node curr=head;
+        Node <T> curr=head;
         int cnt=0;
         while(cnt<index && curr!=null){
             prev=curr;
@@ -93,7 +92,7 @@ public class ManualLinkedList {
             head=null;
             return;
         }
-        Node temp=head;
+        Node<T>temp=head;
         while(temp.next!=null && temp.next.next!=null) temp=temp.next;
         temp.next=null;
     }
@@ -103,10 +102,10 @@ public class ManualLinkedList {
     @param: item to be searched
     @return : boolean if 1 then item is available and if 0 then item is not in list
      */
-    public boolean search(int item){
-        Node temp=head;
+    public boolean search(T item){
+        Node<T> temp=head;
         while(temp!=null){
-            if(temp.data==item) return true;
+            if(temp.data.equals(item)) return true;
             temp=temp.next;
         }
         return false;
@@ -117,12 +116,12 @@ public class ManualLinkedList {
     @params: int searchkey after which u want to add and value you want to add
     @return : string which contains every element of list
      */
-    public String insertAfter(int value,int searchKey){
-        Node newNode = new Node(value);
-        Node temp=head;
+    public String insertAfter(T value,T searchKey){
+        Node<T> newNode = new Node(value);
+        Node<T>temp=head;
         boolean searchflag=false;
         while(temp!=null){
-            if(temp.data==searchKey){
+            if(temp.data.equals(searchKey)){
                 searchflag=true;
                 break;
             }
@@ -148,9 +147,9 @@ public class ManualLinkedList {
 @params: value of node to be deleted
 @return : size of list after deleting the node
  */
-    public int delete(int val){
+    public int delete(T val){
         if(head==null) return  0;
-        if(head.data==val) {
+        if(head.data.equals(val)) {
             head=head.next;
         }
         else {
@@ -159,7 +158,7 @@ public class ManualLinkedList {
 
             boolean isFound = false;
             while (curr != null) {
-                if (curr.data == val) {
+                if (curr.data.equals(val)) {
                     isFound = true;
                     break;
                 }
@@ -173,6 +172,8 @@ public class ManualLinkedList {
         return size();
 
     }
+
+
     /*
 @desc: return  size of the list
      */

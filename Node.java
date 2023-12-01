@@ -1,21 +1,25 @@
 package com.example.linkedlist;
 
-public class Node implements  Comparable<Node> {
-    public int  data;
-   Node next;
+public class Node <T extends  Comparable<T>> implements Comparable<Node<T>> {
+    public T data;
+   Node<T> next;
 
-   Node(int data){
+   Node(T data){
        this.data=data;
        this.next=null;
 
    }
 
-    public int getData() {
+    public T getData() {
         return data;
     }
 
-    @Override
-    public int compareTo(Node a){
-       return Integer.compare(data,a.data);
+
+// compare two node of same type
+     @Override
+    public int compareTo(Node<T> a) {
+        return this.data.compareTo(a.data);
     }
 }
+
+
