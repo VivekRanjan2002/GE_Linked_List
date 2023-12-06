@@ -1,3 +1,4 @@
+
 package com.example.linkedlist;
 
 import org.junit.jupiter.api.Test;
@@ -45,3 +46,4 @@ class ManualLinkedListTest {
     }
 
 }
+

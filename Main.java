@@ -5,11 +5,21 @@ public class Main {
     public static void main(String[] args) {
 
         // UC1 initialisation of list
-    ManualLinkedList<Integer> list= new ManualLinkedList();
+        ManualLinkedList<Integer> list= new ManualLinkedList();
+         // UC2 create and add
+        list.add(70);  //70
+        list.add(30);  // 30 70
+        list.add(56);
+        list.display(); // 56 30 70
+        list.delete(56); // 30 70
+        list.delete(70); // 30
+        list.delete(30);
 
-    // UC2 and UC3 create and append
-        list.add(56); // 56
-        list.add(70);  //  56-> 70
+        //  UC3 create and append
+        list.append(56); // 56
+        list.append(70);  //  56-> 70
+
+   
 
         // UC4 insert at particular index
         list.insert(1,30); // 56->30->70
@@ -34,7 +44,6 @@ public class Main {
         // UC9 ability to delete particular node and return current size of list
         list.delete(40); // 2
 
-
    // UC10  creating sorted list
    ManualLinkedList sortedlist= new ManualLinkedList();
    sortedlist.addSortedManner(56);
@@ -42,7 +51,6 @@ public class Main {
    sortedlist.addSortedManner(40);
    sortedlist.addSortedManner(70);
    sortedlist.display();   // 30->40->56->70
-
 
     }
 

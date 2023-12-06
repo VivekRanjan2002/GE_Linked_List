@@ -3,16 +3,21 @@ package com.example.linkedlist;
 public class ManualLinkedList <T extends Comparable<T>>{
     Node <T> head;
 
-// @desc: static method to initialise linked list and return it
 
- public ManualLinkedList(){
-     head=null;
- }
 
-    /*
-   @desc: add item to the linked  list
+    public ManualLinkedList(){
+        head=null;
+    }
+    //add item in linked list
+public void add(T data){
+        Node<T> newNode= new Node(data);
+        newNode.next=head;
+        head=newNode;
+
+  /*
+   @desc: append item to the linked  list
     */
-    public void add ( T data) {
+    public void append ( T data) {
         Node<T>newNode= new Node(data);
         if(head==null){
             head=newNode;
@@ -23,8 +28,7 @@ public class ManualLinkedList <T extends Comparable<T>>{
             temp.next=newNode;
         }
     }
-
-
+ 
    /*
    @desc: add item in sorted manner to the linked  list
     */
@@ -200,4 +204,7 @@ public class ManualLinkedList <T extends Comparable<T>>{
        }
          System.out.println();
      }
+
 }
+  
+
