@@ -19,6 +19,8 @@ public class Main {
         list.append(56); // 56
         list.append(70);  //  56-> 70
 
+   
+
         // UC4 insert at particular index
         list.insert(1,30); // 56->30->70
 
@@ -42,15 +44,13 @@ public class Main {
         // UC9 ability to delete particular node and return current size of list
         list.delete(40); // 2
 
-
-        // UC10  creating sorted list
-        ManualLinkedList sortedlist= new ManualLinkedList();
-        sortedlist.addSortedManner(56);
-        sortedlist.addSortedManner(30);
-        sortedlist.addSortedManner(40);
-        sortedlist.addSortedManner(70);
-        sortedlist.display();   // 30->40->56->70
-
+   // UC10  creating sorted list
+   ManualLinkedList sortedlist= new ManualLinkedList();
+   sortedlist.addSortedManner(56);
+   sortedlist.addSortedManner(30);
+   sortedlist.addSortedManner(40);
+   sortedlist.addSortedManner(70);
+   sortedlist.display();   // 30->40->56->70
 
     }
 
